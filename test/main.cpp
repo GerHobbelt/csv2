@@ -2,6 +2,7 @@
 #include <csv2/reader.hpp>
 #include <string>
 #include <vector>
+
 using namespace csv2;
 using doctest::test_suite;
 

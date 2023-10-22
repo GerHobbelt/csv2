@@ -1,9 +1,16 @@
 #include <chrono>
 #include <csv2/reader.hpp>
 #include <iostream>
+
+#include "monolithic_examples.h"
+
+#if defined(BUILD_MONOLITHIC)
+#define main		csv2_fieldcount_main
+#endif
+
 using namespace csv2;
 
-int main(int argc, char **argv) {
+int main(int argc, const char **argv) {
   if (argc != 2) {
     std::cout << "Usage: ./fieldcount <csv_file>\n";
     return EXIT_FAILURE;
@@ -18,7 +25,9 @@ int main(int argc, char **argv) {
       }
     }
     std::cout << cells << "\n";
+	return EXIT_SUCCESS;
   } else {
     std::cout << "0\n";
+	return EXIT_SUCCESS;
   }
 }

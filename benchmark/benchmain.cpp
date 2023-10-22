@@ -1,9 +1,16 @@
 #include <chrono>
 #include <csv2/reader.hpp>
 #include <iostream>
+
+#include "monolithic_examples.h"
+
+#if defined(BUILD_MONOLITHIC)
+#define main		csv2_bench_main
+#endif
+
 using namespace csv2;
 
-int main(int argc, char **argv) {
+int main(int argc, const char **argv) {
 
   if (argc != 2) {
     std::cout << "Usage: ./main <csv_file>\n";
@@ -40,7 +47,9 @@ int main(int argc, char **argv) {
     std::cout << "Cells: " << cells << "\n";
     std::cout << "Execution Time: ";
     print_exec_time(start, stop);
+	return EXIT_SUCCESS;
   } else {
     std::cout << "error: Failed to open " << argv[1] << std::endl;
+	return EXIT_FAILURE;
   }
 }
