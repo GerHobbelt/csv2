@@ -19,7 +19,7 @@
 ```cpp
 #include <csv2/reader.hpp>
 
-int main() {
+int main(void) {
   csv2::Reader<csv2::delimiter<','>, 
                csv2::quote_character<'"'>, 
                csv2::first_row_is_header<true>,
@@ -148,7 +148,7 @@ This library also provides a basic `csv2::Writer` class - one that can be used t
 #include <string>
 using namespace csv2;
 
-int main() {
+int main(void) {
     std::ofstream stream("foo.csv");
     Writer<delimiter<','>> writer(stream);
 
